@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,9 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700&display=swap"
+        rel="stylesheet">
     <!-- Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <!-- FontAwesome Icons -->
@@ -15,6 +18,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <!-- Background Glow Effects -->
     <div class="bg-glow glow-1"></div>
@@ -55,7 +59,8 @@
                 <span class="badge badge-accent"><i class="fa-solid fa-lock"></i> Cryptography & PRNG Lab</span>
                 <h1 class="hero-title">Linear Congruential Generator Laboratory</h1>
                 <p class="hero-description">
-                    Interactive simulation, step-by-step mathematical breakdown, spectral visualization, cycle length detection, and cryptographic analysis of classic pseudorandom sequence generators.
+                    Interactive simulation, step-by-step mathematical breakdown, spectral visualization, cycle length
+                    detection, and cryptographic analysis of classic pseudorandom sequence generators.
                 </p>
                 <div class="hero-metrics">
                     <div class="metric-pill"><i class="fa-solid fa-calculator"></i> BigInt Safe Arithmetic</div>
@@ -78,22 +83,26 @@
                 <div class="aim-card">
                     <div class="aim-number">01</div>
                     <h3>Implementation</h3>
-                    <p>Correctly implement the Linear Congruential Generator algorithm using safe modular arithmetic in JavaScript.</p>
+                    <p>Correctly implement the Linear Congruential Generator algorithm using safe modular arithmetic in
+                        JavaScript.</p>
                 </div>
                 <div class="aim-card">
                     <div class="aim-number">02</div>
                     <h3>Interactive Visualization</h3>
-                    <p>Enable users to modify parameters ($X_0, a, c, m, N$) and visualize sequence properties in real-time line and scatter charts.</p>
+                    <p>Enable users to modify parameters ($X_0, a, c, m, N$) and visualize sequence properties in
+                        real-time line and scatter charts.</p>
                 </div>
                 <div class="aim-card">
                     <div class="aim-number">03</div>
                     <h3>Spectral & Cycle Analysis</h3>
-                    <p>Analyze cycle period repeats, detect state space loops using Floyd's algorithm, and verify the Hull-Dobell Theorem conditions.</p>
+                    <p>Analyze cycle period repeats, detect state space loops using Floyd's algorithm, and verify the
+                        Hull-Dobell Theorem conditions.</p>
                 </div>
                 <div class="aim-card">
                     <div class="aim-number">04</div>
                     <h3>Cryptographic Evaluation</h3>
-                    <p>Demonstrate why LCG is deterministic, highly predictable, and fundamentally <strong>unsuitable for cryptographic security</strong>.</p>
+                    <p>Demonstrate why LCG is deterministic, highly predictable, and fundamentally <strong>unsuitable
+                            for cryptographic security</strong>.</p>
                 </div>
             </div>
         </section>
@@ -109,11 +118,13 @@
             </div>
             <div class="theory-content">
                 <div class="formula-box">
-                    <div class="formula-title"><i class="fa-solid fa-square-root-variable"></i> General Recurrence Formula</div>
+                    <div class="formula-title"><i class="fa-solid fa-square-root-variable"></i> General Recurrence
+                        Formula</div>
                     <div class="formula-display">
                         X_{n+1} = (a \cdot X_n + c) \pmod m
                     </div>
-                    <p class="formula-subtext">where $X_{n+1}$ is the next pseudorandom integer, given current state $X_n$.</p>
+                    <p class="formula-subtext">where $X_{n+1}$ is the next pseudorandom integer, given current state
+                        $X_n$.</p>
                 </div>
 
                 <div class="parameters-grid">
@@ -135,14 +146,16 @@
                         <span class="param-symbol">c</span>
                         <div class="param-info">
                             <h4>Increment (c)</h4>
-                            <p>Constant offset added per step. Must satisfy $0 \le c < m$. If $c=0$, it is a Multiplicative Congruential Generator (MCG).</p>
+                            <p>Constant offset added per step. Must satisfy $0 \le c < m$. If $c=0$, it is a
+                                    Multiplicative Congruential Generator (MCG).</p>
                         </div>
                     </div>
                     <div class="param-card">
                         <span class="param-symbol">m</span>
                         <div class="param-info">
                             <h4>Modulus (m)</h4>
-                            <p>Upper bound modulus determining state space size. Must satisfy $m > 0$. Maximum possible period length is $m$.</p>
+                            <p>Upper bound modulus determining state space size. Must satisfy $m > 0$. Maximum possible
+                                period length is $m$.</p>
                         </div>
                     </div>
                     <div class="param-card">
@@ -164,11 +177,15 @@
                 <div class="theory-two-col">
                     <div class="info-block">
                         <h3><i class="fa-solid fa-infinity"></i> Hull-Dobell Theorem (Max Period Conditions)</h3>
-                        <p>An LCG achieves a maximum period length equal to $m$ for all seed values $X_0$ if and only if:</p>
+                        <p>An LCG achieves a maximum period length equal to $m$ for all seed values $X_0$ if and only
+                            if:</p>
                         <ul class="styled-list">
-                            <li><span class="highlight">1.</span> $c$ and $m$ are relatively prime (i.e., $\gcd(c, m) = 1$).</li>
-                            <li><span class="highlight">2.</span> $a - 1$ is divisible by every prime factor of $m$.</li>
-                            <li><span class="highlight">3.</span> $a - 1$ is divisible by $4$ if $m$ is divisible by $4$.</li>
+                            <li><span class="highlight">1.</span> $c$ and $m$ are relatively prime (i.e., $\gcd(c, m) =
+                                1$).</li>
+                            <li><span class="highlight">2.</span> $a - 1$ is divisible by every prime factor of $m$.
+                            </li>
+                            <li><span class="highlight">3.</span> $a - 1$ is divisible by $4$ if $m$ is divisible by
+                                $4$.</li>
                         </ul>
                     </div>
 
@@ -176,7 +193,10 @@
                         <h3><i class="fa-solid fa-triangle-exclamation"></i> Cryptographic Vulnerability Notice</h3>
                         <p><strong>LCG IS NOT CRYPTOGRAPHICALLY SECURE!</strong></p>
                         <p>
-                            LCGs are completely linear and deterministic. Given a few consecutive outputs (or even normalized floats), an attacker can easily solve a system of linear congruences to recover the hidden parameters ($a, c, m$) and predict all future and past outputs in $O(1)$ time using basic modular arithmetic.
+                            LCGs are completely linear and deterministic. Given a few consecutive outputs (or even
+                            normalized floats), an attacker can easily solve a system of linear congruences to recover
+                            the hidden parameters ($a, c, m$) and predict all future and past outputs in $O(1)$ time
+                            using basic modular arithmetic.
                         </p>
                     </div>
                 </div>
@@ -240,16 +260,6 @@
                                     <span class="input-unit">steps (1-1000)</span>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="presetSelect">Load Presets:</label>
-                                <select id="presetSelect" class="custom-select">
-                                    <option value="default">Default (m=16, a=5, c=3, X0=7)</option>
-                                    <option value="fulldobell">Full Period (m=100, a=21, c=7, X0=0)</option>
-                                    <option value="lehmer">Lehmer MCG (m=31, a=3, c=0, X0=1)</option>
-                                    <option value="randu">Flawed RANDU (m=2147483648, a=65539, c=0)</option>
-                                    <option value="short">Short Cycle (m=16, a=4, c=2, X0=1)</option>
-                                </select>
-                            </div>
                         </div>
 
                         <!-- Error Message Container -->
@@ -265,9 +275,6 @@
                             </button>
                             <button type="button" id="btnReset" class="btn btn-secondary">
                                 <i class="fa-solid fa-rotate-left"></i> Reset
-                            </button>
-                            <button type="button" id="btnLoadExample" class="btn btn-info">
-                                <i class="fa-solid fa-folder-open"></i> Load Example
                             </button>
                             <button type="button" id="btnRunTests" class="btn btn-success">
                                 <i class="fa-solid fa-vial-circle-check"></i> Run Tests
@@ -299,7 +306,8 @@
                     </div>
                     <div class="period-status-box">
                         <i class="fa-solid fa-circle-info"></i>
-                        <span id="statDescription">Generator satisfies Hull-Dobell theorem conditions for full period $m$.</span>
+                        <span id="statDescription">Generator satisfies Hull-Dobell theorem conditions for full period
+                            $m$.</span>
                     </div>
                 </div>
             </div>
@@ -317,7 +325,8 @@
             <div class="step-controls">
                 <span class="step-count-label">Showing steps <span id="stepRangeLabel">1-10</span></span>
                 <div class="pagination-buttons">
-                    <button id="btnPrevSteps" class="btn-sm" disabled><i class="fa-solid fa-chevron-left"></i> Prev</button>
+                    <button id="btnPrevSteps" class="btn-sm" disabled><i class="fa-solid fa-chevron-left"></i>
+                        Prev</button>
                     <button id="btnNextSteps" class="btn-sm"><i class="fa-solid fa-chevron-right"></i> Next</button>
                 </div>
             </div>
@@ -332,7 +341,8 @@
                 <div class="section-icon"><i class="fa-solid fa-table-cells"></i></div>
                 <div>
                     <h2>5. Generated Sequence Data Table</h2>
-                    <p class="section-subtitle">Tabular format showing state progression, algebraic operations, and normalized outputs</p>
+                    <p class="section-subtitle">Tabular format showing state progression, algebraic operations, and
+                        normalized outputs</p>
                 </div>
             </div>
             <div class="table-wrapper">
@@ -359,7 +369,8 @@
                 <div class="section-icon"><i class="fa-solid fa-chart-line"></i></div>
                 <div>
                     <h2>6. Interactive Visualizations & Spectral Plots</h2>
-                    <p class="section-subtitle">Visual analysis of randomness, temporal patterns, and 2D phase-space lattice structures</p>
+                    <p class="section-subtitle">Visual analysis of randomness, temporal patterns, and 2D phase-space
+                        lattice structures</p>
                 </div>
             </div>
 
@@ -392,7 +403,8 @@
                 <div class="section-icon"><i class="fa-solid fa-rotate"></i></div>
                 <div>
                     <h2>7. Cycle & Period Analysis</h2>
-                    <p class="section-subtitle">State repetition detection and Hull-Dobell mathematical theorem checks</p>
+                    <p class="section-subtitle">State repetition detection and Hull-Dobell mathematical theorem checks
+                    </p>
                 </div>
             </div>
 
@@ -454,7 +466,8 @@
                 <div class="section-icon"><i class="fa-solid fa-vial-circle-check"></i></div>
                 <div>
                     <h2>8. Correctness Test Cases</h2>
-                    <p class="section-subtitle">Verification of generator implementation against known reference standard sequences</p>
+                    <p class="section-subtitle">Verification of generator implementation against known reference
+                        standard sequences</p>
                 </div>
             </div>
 
@@ -463,9 +476,6 @@
                     <span class="test-score-title">Test Suite Status:</span>
                     <div id="testSummaryBadge" class="badge badge-neutral">Not Run Yet</div>
                 </div>
-                <button id="btnRunTestsTab" class="btn btn-success">
-                    <i class="fa-solid fa-play"></i> Run All 5 Unit Tests
-                </button>
             </div>
 
             <div id="testResultsContainer" class="test-results-grid">
@@ -487,20 +497,32 @@
                 <div class="comparison-card card-advantage">
                     <h3><i class="fa-solid fa-thumbs-up"></i> Advantages & Ideal Use Cases</h3>
                     <ul>
-                        <li><i class="fa-solid fa-bolt"></i> <strong>Extremely Fast:</strong> Requires only one multiplication, one addition, and one modulo operation per number.</li>
-                        <li><i class="fa-solid fa-memory"></i> <strong>Minimal State Memory:</strong> Requires storing only a single integer state variable ($X_n$).</li>
-                        <li><i class="fa-solid fa-repeat"></i> <strong>Reproducibility:</strong> Given the same seed $X_0$, the exact same sequence is generated reproducibly.</li>
-                        <li><i class="fa-solid fa-gamepad"></i> <strong>Non-Critical Applications:</strong> Excellent for Monte Carlo simulations, simple video game RNG, procedural generation, and graphics.</li>
+                        <li><i class="fa-solid fa-bolt"></i> <strong>Extremely Fast:</strong> Requires only one
+                            multiplication, one addition, and one modulo operation per number.</li>
+                        <li><i class="fa-solid fa-memory"></i> <strong>Minimal State Memory:</strong> Requires storing
+                            only a single integer state variable ($X_n$).</li>
+                        <li><i class="fa-solid fa-repeat"></i> <strong>Reproducibility:</strong> Given the same seed
+                            $X_0$, the exact same sequence is generated reproducibly.</li>
+                        <li><i class="fa-solid fa-gamepad"></i> <strong>Non-Critical Applications:</strong> Excellent
+                            for Monte Carlo simulations, simple video game RNG, procedural generation, and graphics.
+                        </li>
                     </ul>
                 </div>
 
                 <div class="comparison-card card-limitation">
                     <h3><i class="fa-solid fa-ban"></i> Cryptographic Flaws & Failures</h3>
                     <ul>
-                        <li><i class="fa-solid fa-eye"></i> <strong>Full Predictability:</strong> Knowing 3-4 consecutive outputs exposes $a, c, m$, allowing full state recovery in $O(1)$ time.</li>
-                        <li><i class="fa-solid fa-border-all"></i> <strong>Marsaglia's Lattice Theorem:</strong> Sequence points plotted in $k$-dimensional space fall on a small number of parallel hyperplanes ("RNGs fall mainly in the planes").</li>
-                        <li><i class="fa-solid fa-layer-group"></i> <strong>Low-Order Bit Periodicity:</strong> When $m$ is a power of 2 ($2^k$), the lowest $b$ bits have a period of only $2^b$. The last bit alternates between 0 and 1!</li>
-                        <li><i class="fa-solid fa-triangle-exclamation"></i> <strong>RANDU Disaster:</strong> Historical LCG with $a=65539, m=2^{31}$ caused catastrophic failures in 1960s 3D scientific simulations.</li>
+                        <li><i class="fa-solid fa-eye"></i> <strong>Full Predictability:</strong> Knowing 3-4
+                            consecutive outputs exposes $a, c, m$, allowing full state recovery in $O(1)$ time.</li>
+                        <li><i class="fa-solid fa-border-all"></i> <strong>Marsaglia's Lattice Theorem:</strong>
+                            Sequence points plotted in $k$-dimensional space fall on a small number of parallel
+                            hyperplanes ("RNGs fall mainly in the planes").</li>
+                        <li><i class="fa-solid fa-layer-group"></i> <strong>Low-Order Bit Periodicity:</strong> When $m$
+                            is a power of 2 ($2^k$), the lowest $b$ bits have a period of only $2^b$. The last bit
+                            alternates between 0 and 1!</li>
+                        <li><i class="fa-solid fa-triangle-exclamation"></i> <strong>RANDU Disaster:</strong> Historical
+                            LCG with $a=65539, m=2^{31}$ caused catastrophic failures in 1960s 3D scientific
+                            simulations.</li>
                     </ul>
                 </div>
             </div>
@@ -518,15 +540,21 @@
 
             <div class="conclusion-content">
                 <p>
-                    The Linear Congruential Generator (LCG) is a fundamental, elegant, and computationally lightweight algorithm for pseudorandom number generation. However, due to its linear recurrence structure $X_{n+1} = (a \cdot X_n + c) \pmod m$, it exhibits severe structural predictability and dimensional hyperplane lattice alignment.
+                    The Linear Congruential Generator (LCG) is a fundamental, elegant, and computationally lightweight
+                    algorithm for pseudorandom number generation. However, due to its linear recurrence structure
+                    $X_{n+1} = (a \cdot X_n + c) \pmod m$, it exhibits severe structural predictability and dimensional
+                    hyperplane lattice alignment.
                 </p>
                 <div class="recommendation-box">
                     <h4><i class="fa-solid fa-shield-cat"></i> Cryptographic Recommendation</h4>
                     <p>
-                        For secure applications (key generation, session tokens, encryption IVs, digital signatures), <strong>NEVER use LCG</strong>. Instead, use Cryptographically Secure Pseudorandom Number Generators (CSPRNGs) such as:
+                        For secure applications (key generation, session tokens, encryption IVs, digital signatures),
+                        <strong>NEVER use LCG</strong>. Instead, use Cryptographically Secure Pseudorandom Number
+                        Generators (CSPRNGs) such as:
                     </p>
                     <div class="csprng-chips">
-                        <span class="chip"><i class="fa-solid fa-code"></i> Web Crypto API (crypto.getRandomValues())</span>
+                        <span class="chip"><i class="fa-solid fa-code"></i> Web Crypto API
+                            (crypto.getRandomValues())</span>
                         <span class="chip"><i class="fa-solid fa-key"></i> AES-CTR DRBG</span>
                         <span class="chip"><i class="fa-solid fa-lock"></i> ChaCha20 PRNG</span>
                         <span class="chip"><i class="fa-solid fa-cube"></i> HMAC-DRBG (NIST SP 800-90A)</span>
@@ -537,11 +565,13 @@
 
         <!-- Footer -->
         <footer class="lab-footer">
-            <p>Linear Congruential Generator (LCG) Virtual Laboratory &copy; 2026 | Cryptography & Network Security Courseware</p>
+            <p>Linear Congruential Generator (LCG) Virtual Laboratory &copy; 2026 | Cryptography & Network Security
+                Courseware</p>
         </footer>
     </main>
 
     <!-- Custom JS -->
     <script src="script.js"></script>
 </body>
+
 </html>

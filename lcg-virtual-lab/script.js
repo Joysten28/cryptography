@@ -9,7 +9,7 @@
  * - Dual Chart.js visualizations (Line Chart + 2D Phase-space Scatter Plot)
  * - Floyd's Cycle Detection & Hull-Dobell Theorem Verification
  * - Automated Unit Test Suite execution
- * - Theme toggling & Preset management
+ * - Theme toggling
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -20,13 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const cInput = document.getElementById('cInput');
     const mInput = document.getElementById('mInput');
     const nInput = document.getElementById('nInput');
-    const presetSelect = document.getElementById('presetSelect');
 
     const btnGenerate = document.getElementById('btnGenerate');
     const btnReset = document.getElementById('btnReset');
-    const btnLoadExample = document.getElementById('btnLoadExample');
     const btnRunTests = document.getElementById('btnRunTests');
-    const btnRunTestsTab = document.getElementById('btnRunTestsTab');
 
     const validationAlert = document.getElementById('validationAlert');
     const validationText = document.getElementById('validationText');
@@ -47,15 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let lineChart = null;
     let scatterChart = null;
 
-    // Preset configurations
-    const PRESETS = {
-        default: { seed: 7, a: 5, c: 3, m: 16, n: 10 },
-        fulldobell: { seed: 0, a: 21, c: 7, m: 100, n: 20 },
-        lehmer: { seed: 1, a: 3, c: 0, m: 31, n: 15 },
-        randu: { seed: 1, a: 65539, c: 0, m: 2147483648, n: 25 },
-        short: { seed: 1, a: 4, c: 2, m: 16, n: 12 }
-    };
-
     // Predefined Unit Test Cases
     const UNIT_TESTS = [
         {
@@ -70,14 +58,14 @@ document.addEventListener('DOMContentLoaded', () => {
             name: "Test 2: Lehmer Multiplicative Generator (c=0)",
             params: { seed: 1, a: 3, c: 0, m: 7, n: 6 },
             expected: [3, 2, 6, 4, 5, 1],
-            description: "Multiplicative LCG with prime modulus m=7 and seed=1."
+            description: "Multiplicative LCG with prime modulus m=7 and seed=1, including the repeated state at iteration 6."
         },
         {
             id: 3,
             name: "Test 3: Hull-Dobell Full Period Sequence",
             params: { seed: 0, a: 5, c: 7, m: 8, n: 8 },
             expected: [7, 2, 1, 4, 3, 6, 5, 0],
-            description: "Full period generator (P=8) traversing all state space integers."
+            description: "Full period generator (P=8) traversing all state space integers and repeating the seed at iteration 8."
         },
         {
             id: 4,
@@ -147,6 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         for (let i = 0; i < n; i++) {
             const nextState = (A * currState + C) % M;
+
             const stepVal = A * currState + C;
             const normVal = Number(nextState) / Number(M);
 
@@ -367,6 +356,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 5. Render Cycle Analysis Details
         renderCycleAnalysis(cycleInfo, hdInfo, a, c, m);
+
+        document.getElementById('step-by-step').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     /**
@@ -650,36 +641,18 @@ document.addEventListener('DOMContentLoaded', () => {
     btnGenerate.addEventListener('click', runSimulation);
 
     btnReset.addEventListener('click', () => {
-        presetSelect.value = 'default';
-        applyPreset('default');
-        runSimulation();
-    });
-
-    btnLoadExample.addEventListener('click', () => {
-        applyPreset(presetSelect.value);
-        runSimulation();
-    });
-
-    presetSelect.addEventListener('change', (e) => {
-        applyPreset(e.target.value);
-    });
-
-    function applyPreset(key) {
-        const p = PRESETS[key] || PRESETS.default;
-        seedInput.value = p.seed;
-        aInput.value = p.a;
-        cInput.value = p.c;
-        mInput.value = p.m;
-        nInput.value = p.n;
+        seedInput.value = 0;
+        aInput.value = 0;
+        cInput.value = 0;
+        mInput.value = 0;
+        nInput.value = 0;
         hideError();
-    }
+    });
 
     btnRunTests.addEventListener('click', () => {
         runUnitTestSuite();
         document.getElementById('tests').scrollIntoView({ behavior: 'smooth' });
     });
-
-    btnRunTestsTab.addEventListener('click', runUnitTestSuite);
 
     // Theme Switcher
     themeToggle.addEventListener('click', () => {

@@ -305,13 +305,15 @@ body {
     border: 1px solid rgba(99, 102, 241, 0.3);
 }
 
-.badge-success, .badge-pass {
+.badge-success,
+.badge-pass {
     background: var(--success-bg);
     color: var(--success);
     border: 1px solid rgba(16, 185, 129, 0.3);
 }
 
-.badge-danger, .badge-fail {
+.badge-danger,
+.badge-fail {
     background: var(--danger-bg);
     color: var(--danger);
     border: 1px solid rgba(239, 68, 68, 0.3);
@@ -506,7 +508,8 @@ body {
     }
 }
 
-.info-block, .warning-block {
+.info-block,
+.warning-block {
     border-radius: var(--radius-md);
     padding: 1.5rem;
     border: 1px solid var(--border-color);
@@ -632,23 +635,6 @@ body {
     font-size: 0.75rem;
     color: var(--text-dim);
     pointer-events: none;
-}
-
-.custom-select {
-    width: 100%;
-    background: var(--bg-card-solid);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-sm);
-    color: var(--text-main);
-    padding: 0.6rem 0.8rem;
-    font-family: var(--font-body);
-    font-size: 0.875rem;
-    outline: none;
-    cursor: pointer;
-}
-
-.custom-select:focus {
-    border-color: var(--primary);
 }
 
 /* Validation Alert */
